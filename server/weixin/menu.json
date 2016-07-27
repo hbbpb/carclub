@@ -1,0 +1,74 @@
+{
+    "button": [
+        {
+            "name": "求挪车",
+            "sub_button": [
+                {
+                    "type": "click",
+                    "name": "发送文字",
+                    "key": "menuText_0_0"
+                },
+                {
+                    "type": "click",
+                    "name": "发送语音",
+                    "key": "menuVoice_0_1"
+                },
+                {
+                    "type": "pic_photo_or_album",
+                    "name": "发车牌照",
+                    "key": "menuImage_0_2"
+                },
+                {
+                    "type": "scancode_waitmsg",
+                    "name": "扫二维码",
+                    "key": "menuCode_0_3"
+                }
+            ]
+        },
+        {
+            "name": "风云榜",
+            "sub_button": [
+                {
+                    "type": "click",
+                    "name": "一周风云榜",
+                    "key": "menuWeekRank_1_0"
+                },
+                {
+                    "type": "click",
+                    "name": "月度风云榜",
+                    "key": "menuMonthRank_1_1"
+                },
+                {
+                    "type": "click",
+                    "name": "年度风云榜",
+                    "key": "menuYearRank_1_2"
+                }
+            ]
+        },
+        {
+            "name": "高级服务",
+            "sub_button": [
+                {
+                    "type": "click",
+                    "name": "我的爱车",
+                    "key": "menuMyCar_2_0"
+                },
+                {
+                    "type": "click",
+                    "name": "预约挪车",
+                    "key": "menuAppointment_2_1"
+                },
+                {
+                    "type": "click",
+                    "name": "预约车位",
+                    "key": "menuCarport_2_2"
+                },
+                {
+                    "type": "click",
+                    "name": "更多帮助",
+                    "key": "menuHelp_2_3"
+                }
+            ]
+        }
+    ]
+}

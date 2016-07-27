@@ -1,0 +1,11 @@
+.DS_Store
+.git/
+.idea/
+server/log/
+node_modules/
+client/third-party/
+client/libs/
+client/reports/
+client-build/
+temp/
+*.log

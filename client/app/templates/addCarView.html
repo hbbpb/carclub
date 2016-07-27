@@ -1,0 +1,88 @@
+<div ui-content-for="title">
+    <span ng-bind="titleText"></span>
+</div>
+<div class="scrollable">
+    <div class="scrollable-content section">
+        <form role="form" name="carForm" ng-submit='addCar()'>
+            <fieldset>
+                <legend>GC车友会</legend>
+                <div class="form-group has-success has-feedback">
+                    <label>车牌号码</label>
+                    <input required class="form-control" name="carNumber" ng-model="model.Car.number"
+                           ng-change="getCar()"
+                           pattern=".[A-Za-z][A-Za-z0-9]{5}">
+
+                    <div ng-messages="carForm.carNumber.$error">
+                        <div ng-message="required">＊必需项，如“陕A12T45”。</div>
+                        <div ng-message="pattern">请输入正确的车牌号码，如“陕A12T45”。</div>
+                    </div>
+                </div>
+                <div class="form-group has-success has-feedback">
+                    <label>车辆品牌</label>
+                    <input class="form-control" name="carBrand" ng-model="model.Car.brand" maxlength="20"
+                           placeholder="可选，如“法拉利911”。">
+
+                    <div ng-messages="carForm.mood.$error">
+                        <div ng-message="maxlength">您的车是从火星进口的？这么长？</div>
+                    </div>
+                </div>
+                <div class="form-group has-success has-feedback">
+                    <label>车主姓名</label>
+                    <input required class="form-control" name="userName" ng-model="model.User.name" maxlength="10">
+
+                    <div ng-messages="carForm.userName.$error">
+                        <div ng-message="required">＊必需项，第二个汉字建议使用拼音，如“张san丰”。</div>
+                        <div ng-message="maxlength">火星人，你好，可以改个地球人名么？</div>
+                    </div>
+                </div>
+                <div class="form-group has-success has-feedback">
+                    <label>挪车电话</label>
+                    <input required class="form-control" name="mobile" ng-model="model.Phone.mobile"
+                           pattern="[0-9]{7,11}">
+
+                    <div ng-messages="carForm.mobile.$error">
+                        <div ng-message="required">＊必需项，请输入挪车电话。</div>
+                        <div ng-message="pattern">请输入正确的电话号码，如“18612348686”。</div>
+                    </div>
+                </div>
+                <div class="form-group has-success has-feedback">
+                    <label>GC分机</label>
+                    <input class="form-control" name="gcPhone" ng-model="model.Phone.gcPhone"
+                           placeholder="可选，如“135”。"
+                           pattern="[0-9]{3}">
+
+                    <div ng-messages="carForm.gcPhone.$error">
+                        <div ng-message="pattern">请输入正确的GC分机，如“135”。</div>
+                    </div>
+                </div>
+                <div class="form-group has-success has-feedback">
+                    <label>电子邮件</label>
+                    <input required class="form-control" name="email" ng-model="model.User.email" type="email">
+
+                    <div ng-messages="carForm.email.$error">
+                        <div ng-message="required">＊必需项，用于预约挪车等高级功能。</div>
+                        <div ng-message="email">电子邮件格式不正确。</div>
+                    </div>
+                </div>
+                <div class="form-group has-success has-feedback">
+                    <label>挪车心情</label>
+                    <input required class="form-control" name="mood" ng-model="model.User.mood"
+                           placeholder="不挪不挪就不挪，打我电话也不挪！"
+                           maxlength="30"
+                           minlength="5">
+
+                    <div ng-messages="carForm.mood.$error">
+                        <div ng-message="required">＊必需项，相当于个性签名。</div>
+                        <div ng-message="maxlength">哥，太长了，您的心情有这么复杂吗？</div>
+                        <div ng-message="minlength">有这么懒吗？太轻描淡写了。</div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr>
+            <button class="btn btn-primary btn-block" ng-bind="buttonText"></button>
+            <div ui-content-for="navbarAction">
+                <a class='btn' ng-disabled="!carForm.$valid" ng-click='addCar()' ng-bind="buttonText"></a>
+            </div>
+        </form>
+    </div>
+</div>
