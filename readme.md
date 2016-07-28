@@ -17,9 +17,10 @@ Car Club
 
         $ cd carclub
 
-3. Install required Node.js modules, this step will automatically build the project
+3. Install required Node.js modules and build the project
 
         $ npm install
+        $ grunt build
 
 4. Start Node.js HTTP server in development environment
 
