@@ -12,6 +12,8 @@ define([
 ], function (Q, weixin, logger, common, Car, MoveLog) {
     'use strict';
 
+    var dns = 'http://carclub.lipengbo.com';
+
     var helpMessage = '＝＝GC车友会帮助菜单＝＝\n' +
         '1.常用服务：回复车牌号码最后3位，获取车主信息。（字母不区分大小写，如车牌“陕A12T45“，回复“t45”即可）\n' +
         '---------------------\n' +
@@ -37,7 +39,7 @@ define([
                 } else {
                     //非绑定用户
                     message = '对不起，您还不是绑定用户，系统无法为您提供服务，请先完成绑定。\n\n' +
-                        '<a href="http://carclub.lipengbo.com/#/addcar/bind/' + openID + '">点此绑定>>></a>';
+                        '<a href="' + dns + '/#/addcar/bind/' + openID + '">点此绑定>>></a>';
                 }
             }
             deferred.resolve(message);
@@ -67,7 +69,7 @@ define([
             .then(function (message) {
                 if (message == null || message === '') {
                     message = '对不起，您还不是金牌用户，不能为您提供金牌服务。\n\n' +
-                        '<a href="http://carclub.lipengbo.com/#/upgrade/' + openID + '">我任性，我升级>>></a>\n';
+                        '<a href="' + dns + '/#/upgrade/' + openID + '">我任性，我升级>>></a>\n';
                 }
                 deferred.resolve(message);
             });
@@ -130,7 +132,7 @@ define([
                 logger.debug('判断email');
                 if (doc.User.email) {
                     logger.debug('有email');
-                    resMsg.content += '\n' + '<a href="http://carclub.lipengbo.com/#/appointment/' + doc.Car.number + '/' + msg.fromUserName + '">预约挪车>>></a>';
+                    resMsg.content += '\n' + '<a href="' + dns + '/#/appointment/' + doc.Car.number + '/' + msg.fromUserName + '">预约挪车>>></a>';
                 } else {
                     logger.debug('没有email');
                 }
@@ -165,12 +167,12 @@ define([
                     'GC分机：' + common.getTextOrEmpty(doc.Phone.gcPhone) + '\n' +
                     '电子邮件：' + doc.User.email + '\n' +
                     '挪车心情：' + common.getTextOrEmpty(doc.User.mood) + '\n\n' +
-                    '<a href="http://carclub.lipengbo.com/#/addcar/edit/' + openID + '">点此编辑>>></a>\t' +
-                    '<a href="http://carclub.lipengbo.com/#/qrcode/' + openID + '">查二维码>>></a>';
+                    '<a href="' + dns + '/#/addcar/edit/' + openID + '">点此编辑>>></a>\t' +
+                    '<a href="' + dns + '/#/qrcode/' + openID + '">查二维码>>></a>';
             } else {
                 //非绑定用户
                 resMsg.content = '您还不是绑定用户，无法使用高级功能。\n' +
-                    '<a href="http://carclub.lipengbo.com/#/addcar/bind/' + openID + '">点此绑定>>></a>\n';
+                    '<a href="' + dns + '/#/addcar/bind/' + openID + '">点此绑定>>></a>\n';
             }
             weixin.sendMsg(resMsg);
         });
@@ -355,25 +357,25 @@ define([
                                                     title: title + ' 之 霸道青年前三甲',
                                                     description: title,
                                                     picUrl: 'https://mmbiz.qlogo.cn/mmbiz/6BvF0PjKRiapujGgOWs2oLk67Q4wKiacRlPJQz5tZz0HlsUaM6G3GUsK7Vr2aLYpyaVdAVWn9DGa38RKcbAjukHg/0',
-                                                    url: 'http://carclub.lipengbo.com/#/rank'
+                                                    url: dns + '/#/rank'
                                                 };
                                                 articles[1] = {
                                                     title: '状元：' + names[0] + '\n' + ben + '挪车' + docs[0].count + '次',
                                                     description: '挪车状元',
                                                     picUrl: 'https://mmbiz.qlogo.cn/mmbiz/6BvF0PjKRiapujGgOWs2oLk67Q4wKiacRljKdEwxPQiccGciaZw4kiaYeEQmIfFuPJXMYSld904Yrpsza6EoiaoabXNA/0',
-                                                    url: 'http://carclub.lipengbo.com/#/rank'
+                                                    url: dns + '/#/rank'
                                                 };
                                                 articles[2] = {
                                                     title: '榜眼：' + names[1] + '\n' + ben + '挪车' + docs[1].count + '次',
                                                     description: '挪车榜眼',
                                                     picUrl: 'https://mmbiz.qlogo.cn/mmbiz/6BvF0PjKRiapujGgOWs2oLk67Q4wKiacRlL5Xtr6ABHC154ibqXqH0CgJzRLwGDnFtuAyUqkO2YLfECic6XBXrDFrg/0',
-                                                    url: 'http://carclub.lipengbo.com/#/rank'
+                                                    url: dns + '/#/rank'
                                                 };
                                                 articles[3] = {
                                                     title: '探花：' + names[2] + '\n' + ben + '挪车' + docs[2].count + '次',
                                                     description: '挪车探花',
                                                     picUrl: 'https://mmbiz.qlogo.cn/mmbiz/6BvF0PjKRiapujGgOWs2oLk67Q4wKiacRlPa4Hbf4x1c05Np6FQicbrBAe5cU7ohtOF5o7qwDPeVda8dFhW7GzibKA/0',
-                                                    url: 'http://carclub.lipengbo.com/#/rank'
+                                                    url: dns + '/#/rank'
                                                 };
 
                                                 //返回图文消息
