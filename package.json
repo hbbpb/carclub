@@ -1,6 +1,6 @@
 {
     "name": "CarClub",
-    "version": "1.0",
+    "version": "0.0.1",
     "description": "微信公众服务［GC车友会］，专注挪车30年！",
     "main": "app.js",
     "dependencies": {
